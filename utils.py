@@ -1,4 +1,5 @@
 import os
+import requests
 
 def load_env_variables(env_file=".env"):
     with open(env_file) as file:
@@ -10,6 +11,11 @@ def load_env_variables(env_file=".env"):
 
 def getenv(key):
     return os.getenv(key)
+
+def ntfy(desc):
+    requests.post(f"https://ntfy.sh/{getenv('NTFY_CHANNEL')}", 
+                                    data=f"{desc}".encode('utf-8'))
+    
 
 # Example usage
 load_env_variables()

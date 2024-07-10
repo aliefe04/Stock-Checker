@@ -1,31 +1,17 @@
 {
     "hm": [
         {
-            "code": 1210963003,
-            "size": "3"
-        },
-        {
-            "code": 1210963003,
-            "size": "3"
-        },
-        {
-            "code": 1210963003,
-            "size": "3"
+            "code": "1210963003",
+            "size": 3,
+            "link": "https://www2.hm.com/en_us/productpage.0717973001.html"
         }
     ],
-    
+
     "zara": [
         {
-            "code": 1210963003,
-            "size": "3"
-        },
-        {
-            "code": 1210963003,
-            "size": "3"
-        },
-        {
-            "code": 1210963003,
-            "size": "3"
+            "code": "370616592",
+            "size": 3,
+            "link": "https://www.zara.com/tr/tr/puskullu-triko-top-p02653003.html?v1=370616592&v2=2420342"
         }
     ]
 }

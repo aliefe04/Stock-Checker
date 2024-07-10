@@ -36,14 +36,5 @@ class HmAvailabilityChecker:
 
 
 if __name__ == "__main__":
-    code = "1210963003"
-    getenv("NTFY_CHANNEL")
-    checker = HmAvailabilityChecker(code, 3)
-    link = f"https://www2.hm.com/tr_tr/productpage.{code}.html"
-    if checker.return_availability():
-        requests.post(
-            f"https://ntfy.sh/{getenv('NTFY_CHANNEL')}",
-            data=f"{link} AVAILABLE".encode("utf-8"),
-            headers={"Click": link},
-        )
-        print("Item available")
+    checker = HmAvailabilityChecker("1210963003", 3)
+    print(checker.return_availability())

@@ -41,22 +41,12 @@ class ZaraAvailabilityChecker:
     def return_availability(self):
         sorted_skus_availability = self.get_sorted_availability()
         if sorted_skus_availability:
-            return sorted_skus_availability[(self.which_size) - 1]["availability"]
-        else:
-            return "unknown"
-
-    def ntfyOnAvailability(self):
-        availability = self.return_availability().lower()
-        if availability in ["in_stock", "low_on_stock"]:
-            print(self.ntfy_channel)
-            try:
-                requests.post(f"https://ntfy.sh/{self.ntfy_channel}", 
-                              data=f"{self.code} AVAILABLE".encode('utf-8'))
-            except requests.RequestException as e:
-                print(f"Error sending notification: {e}")
-        else:
-            print("Item not available")
+            availibility = sorted_skus_availability[(self.which_size) - 1]["availability"]
+            if availibility == "out_of_stock":
+                return False
+            elif availibility in ["in_stock", "low_on_stock"]: 
+                return True
 
 if __name__ == "__main__":
     checker = ZaraAvailabilityChecker("315079187", 2)
-    checker.ntfyOnAvailability()
+    print(checker.return_availability())
